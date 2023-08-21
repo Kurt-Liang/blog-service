@@ -14,15 +14,15 @@ type Error struct {
 var codes = map[int]string{}
 
 func NewError(code int, msg string) *Error {
-	if _, ok := codes[code]; !ok {
-		panic(fmt.Sprintf("錯誤 %d 已經存在，請更換一個", code))
+	if _, ok := codes[code]; ok {
+		panic(fmt.Sprintf("錯誤: %d 已經存在，請更換一個", code))
 	}
 	codes[code] = msg
 	return &Error{code: code, msg: msg}
 }
 
 func (e *Error) Error() string {
-	return fmt.Sprintf("錯誤：%d, 錯誤訊息：%s", e.Code(), e.Msg())
+	return fmt.Sprintf("錯誤: %d, 錯誤訊息: %S", e.Code(), e.Msg())
 }
 
 func (e *Error) Code() int {
@@ -37,7 +37,7 @@ func (e *Error) Msgf(args []interface{}) string {
 	return fmt.Sprintf(e.msg, args...)
 }
 
-func (e *Error) Detail() []string {
+func (e *Error) Details() []string {
 	return e.details
 }
 
