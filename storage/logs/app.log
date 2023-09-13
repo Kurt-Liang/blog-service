@@ -1,1 +1,27 @@
 2023/08/18 08:29:21 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"info","message":"Kurt: Kurt-Liang/blog-service","time":1692347361557767333}
+2023/09/12 07:37:02 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"debug","message":"Test","time":1694504222806112108}
+2023/09/12 07:37:50 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"debug","message":"Test","time":1694504270234781733}
+2023/09/12 07:49:32 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"error","message":"app.BindAndValid errs: State必须是[0 1]中的一个","time":1694504972969763061}
+2023/09/12 07:49:56 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"error","message":"app.BindAndValid errs: State必须是[01]中的一个","time":1694504996937995087}
+2023/09/12 07:50:02 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"error","message":"app.BindAndValid errs: State必须是[01]中的一个","time":1694505002746989020}
+2023/09/12 07:50:07 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"error","message":"app.BindAndValid errs: State必须是[01]中的一个","time":1694505007923124188}
+2023/09/12 07:54:14 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"error","message":"app.BindAndValid errs: State必须是[01]中的一个","time":1694505254566769519}
+2023/09/12 07:54:32 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"error","message":"app.BindAndValid errs: State必须是[0 1]中的一个","time":1694505272558077140}
+2023/09/12 07:54:38 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"error","message":"app.BindAndValid errs: State必须是[0 1]中的一个","time":1694505278811565176}
+2023/09/13 07:43:14 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"error","message":"app.BindAndValid errs: Name长度必须至少为3个字符","time":1694590994343156527}
+2023/09/13 07:47:10 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"error","message":"app.BindAndValid errs: Name长度必须至少为3个字符,State为必填字段","time":1694591230603117648}
+2023/09/13 07:47:42 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"error","message":"app.BindAndValid errs: Name长度必须至少为3个字符,State为必填字段","time":1694591262255965450}
+2023/09/13 07:47:51 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"error","message":"app.BindAndValid errs: State为必填字段,Name长度必须至少为3个字符","time":1694591271779432000}
+2023/09/13 07:48:30 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"error","message":"app.BindAndValid errs: State为必填字段","time":1694591310822629483}
+2023/09/13 07:48:51 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"error","message":"app.BindAndValid errs: State为必填字段","time":1694591331016544616}
+2023/09/13 07:49:05 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"error","message":"app.BindAndValid errs: State为必填字段","time":1694591345803410943}
+2023/09/13 07:49:15 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"error","message":"app.BindAndValid errs: State为必填字段","time":1694591355640881912}
+2023/09/13 07:57:47 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"error","message":"app.BindAndValid errs: Name长度必须至少为3个字符,State为必填字段","time":1694591867447591741}
+2023/09/13 07:58:09 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"error","message":"app.BindAndValid errs: State为必填字段","time":1694591889626367631}
+2023/09/13 08:04:24 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"error","message":"app.BindAndValid errs: State为必填字段","time":1694592264496216488}
+2023/09/13 08:04:35 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"error","message":"svc.UpdateTag err: sql: expected 6 arguments, got 5","time":1694592275354495387}
+2023/09/13 08:04:45 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"error","message":"app.BindAndValid errs: Name长度必须至少为3个字符,ModifiedBy为必填字段","time":1694592285498647522}
+2023/09/13 08:04:56 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"error","message":"app.BindAndValid errs: Name长度必须至少为3个字符","time":1694592296598807428}
+2023/09/13 08:08:36 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"error","message":"app.BindAndValid errs: Name长度必须至少为3个字符","time":1694592516441361795}
+2023/09/13 08:10:31 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"debug","message":"test","time":1694592631994662190}
+2023/09/13 08:10:31 {"callers":["/vagrant/blog-service/main.go: 23 main.init.0"],"level":"error","message":"app.BindAndValid errs: Name长度必须至少为3个字符","time":1694592631995564483}

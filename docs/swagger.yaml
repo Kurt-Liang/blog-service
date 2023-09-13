@@ -1,5 +1,50 @@
 definitions:
+  app.Pager:
+    properties:
+      page:
+        type: integer
+      page_size:
+        type: integer
+      total_rows:
+        type: integer
+    type: object
   errcode.Error:
+    type: object
+  model.Article:
+    properties:
+      content:
+        type: string
+      cover_image_url:
+        type: string
+      created_by:
+        type: string
+      created_on:
+        type: integer
+      deleted_on:
+        type: integer
+      desc:
+        type: string
+      id:
+        type: integer
+      is_del:
+        type: integer
+      modified_by:
+        type: string
+      modified_on:
+        type: integer
+      state:
+        type: integer
+      title:
+        type: string
+    type: object
+  model.ArticleSwagger:
+    properties:
+      list:
+        items:
+          $ref: '#/definitions/model.Article'
+        type: array
+      pager:
+        $ref: '#/definitions/app.Pager'
     type: object
   model.Tag:
     properties:
@@ -22,6 +67,15 @@ definitions:
       state:
         type: integer
     type: object
+  model.TagSwagger:
+    properties:
+      list:
+        items:
+          $ref: '#/definitions/model.Tag'
+        type: array
+      pager:
+        $ref: '#/definitions/app.Pager'
+    type: object
 info:
   contact: {}
   description: Web API 架構練習
@@ -29,6 +83,199 @@ info:
   title: 部落格系統
   version: "1.0"
 paths:
+  /api/v1/articles:
+    get:
+      parameters:
+      - description: 文章名稱
+        in: query
+        name: name
+        type: string
+      - description: 標籤ID
+        in: query
+        name: tag_id
+        type: integer
+      - description: 狀態
+        in: query
+        name: state
+        type: integer
+      - description: 页码
+        in: query
+        name: page
+        type: integer
+      - description: 每页数量
+        in: query
+        name: page_size
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 成功
+          schema:
+            $ref: '#/definitions/model.ArticleSwagger'
+        "400":
+          description: 請求錯誤
+          schema:
+            $ref: '#/definitions/errcode.Error'
+        "500":
+          description: 內部錯誤
+          schema:
+            $ref: '#/definitions/errcode.Error'
+      summary: 取得多個文章
+    post:
+      parameters:
+      - description: 標籤ID
+        in: body
+        name: tag_id
+        required: true
+        schema:
+          type: string
+      - description: 文章標題
+        in: body
+        name: title
+        required: true
+        schema:
+          type: string
+      - description: 文章簡述
+        in: body
+        name: desc
+        schema:
+          type: string
+      - description: 封面圖片位址
+        in: body
+        name: cover_image_url
+        required: true
+        schema:
+          type: string
+      - description: 文章內容
+        in: body
+        name: content
+        required: true
+        schema:
+          type: string
+      - description: 建立人
+        in: body
+        name: created_by
+        required: true
+        schema:
+          type: integer
+      - description: 狀態
+        in: body
+        name: state
+        schema:
+          type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 成功
+          schema:
+            $ref: '#/definitions/model.Article'
+        "400":
+          description: 請求錯誤
+          schema:
+            $ref: '#/definitions/errcode.Error'
+        "500":
+          description: 內部錯誤
+          schema:
+            $ref: '#/definitions/errcode.Error'
+      summary: 新增文章
+  /api/v1/articles/{id}:
+    delete:
+      parameters:
+      - description: 文章ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 成功
+          schema:
+            type: string
+        "400":
+          description: 請求錯誤
+          schema:
+            $ref: '#/definitions/errcode.Error'
+        "500":
+          description: 內部錯誤
+          schema:
+            $ref: '#/definitions/errcode.Error'
+      summary: 删除文章
+    get:
+      parameters:
+      - description: 文章ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 成功
+          schema:
+            $ref: '#/definitions/model.Article'
+        "400":
+          description: 請求錯誤
+          schema:
+            $ref: '#/definitions/errcode.Error'
+        "500":
+          description: 內部錯誤
+          schema:
+            $ref: '#/definitions/errcode.Error'
+      summary: 取得單個文章
+    put:
+      parameters:
+      - description: 標籤ID
+        in: body
+        name: tag_id
+        schema:
+          type: string
+      - description: 文章標題
+        in: body
+        name: title
+        schema:
+          type: string
+      - description: 文章簡述
+        in: body
+        name: desc
+        schema:
+          type: string
+      - description: 封面圖片位址
+        in: body
+        name: cover_image_url
+        schema:
+          type: string
+      - description: 文章內容
+        in: body
+        name: content
+        schema:
+          type: string
+      - description: 修改人
+        in: body
+        name: modified_by
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 成功
+          schema:
+            $ref: '#/definitions/model.Article'
+        "400":
+          description: 請求錯誤
+          schema:
+            $ref: '#/definitions/errcode.Error'
+        "500":
+          description: 內部錯誤
+          schema:
+            $ref: '#/definitions/errcode.Error'
+      summary: 更新文章
   /api/v1/tags:
     get:
       parameters:
@@ -59,7 +306,7 @@ paths:
         "200":
           description: 成功
           schema:
-            $ref: '#/definitions/model.Tag'
+            $ref: '#/definitions/model.TagSwagger'
         "400":
           description: 請求錯誤
           schema:

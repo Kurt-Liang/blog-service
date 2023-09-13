@@ -2,6 +2,7 @@ package routers
 
 import (
 	_ "github.com/Kurt-Liang/blog-service/docs"
+	"github.com/Kurt-Liang/blog-service/internal/middleware"
 	v1 "github.com/Kurt-Liang/blog-service/internal/routers/api/v1"
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
@@ -12,6 +13,7 @@ func NewRouter() *gin.Engine {
 	r := gin.New()
 	r.Use(gin.Logger())
 	r.Use(gin.Recovery())
+	r.Use(middleware.Translations())
 
 	article := v1.NewArticle()
 	tag := v1.NewTag()
